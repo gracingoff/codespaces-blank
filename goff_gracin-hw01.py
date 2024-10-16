@@ -14,10 +14,12 @@
 #
 # Student Data:
 
-students = ({"name": "Alice", "scores": {"Math": 85, "Science": 90, "English": 78}},
+students = [
+{"name": "Alice", "scores": {"Math": 85, "Science": 90, "English": 78}},
 {"name": "Bob", "scores": {"Math": 70, "Science": 88, "English": 82}},
 {"name": "Charlie", "scores": {"Math": 92, "Science": 81, "English": 89}},
-{"name": "David", "scores": {"Math": 60, "Science": 75, "English": 80}})
+{"name": "David", "scores": {"Math": 60, "Science": 75, "English": 80}}
+]
 
 
 #Write a Python program that:
@@ -29,47 +31,18 @@ students = ({"name": "Alice", "scores": {"Math": 85, "Science": 90, "English": 7
 # Your task is to calculate the average scores for each student and print the names of students
 # whose average score is greater than 80.
 
+averages = {}
+for student in students:
+    total = student["scores"]["Math"] + student["scores"]["Science"] + student["scores"]["English"]
+    average = total/3
+    print(f"{student["name"]}'s average score is {average:.2f}")
+    averages[student["name"]] = average
+print(averages)
 
-# Dictionaries of scores for each student
+for key, value in averages.items():
+    if value > 80: 
+        print(f"{key}'s grade is above 80.")
+    else:
+        print(f"{key}'s grade is not above 80.")
 
-alice = {"Math": 85, "Science": 90, "English": 78}
-
-bob = {"Math": 70, "Science": 88, "English": 82}
-
-charlie = {"Math": 92, "Science": 81, "English": 89}
-
-david = {"Math": 60, "Science": 75, "English": 80}
-
-
-# Average scores 
-
-avg_alice = (alice['Math']+alice['Science']+alice['English'])/3
-
-avg_bob = (bob['Math']+bob['Science']+bob['English'])/3
-
-avg_charlie = (charlie['Math']+charlie['Science']+charlie['English'])/3
-
-avg_david = (david['Math']+david['Science']+david['English'])/3
-
-
-# New dictionary of average scores
-
-avg_scores = {}
-
-avg_scores['Alice'] = avg_alice
-
-avg_scores['Bob'] = avg_bob
-
-avg_scores['Charlie'] = avg_charlie
-
-avg_scores['David'] = avg_david
-
-print(avg_scores)
-
-
-# Scores over 80 
-
-for key, value in avg_scores.items():
-    if value > 80:
-        print(key)
 
