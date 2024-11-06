@@ -45,8 +45,7 @@ year = int(date[2])
 
 leap_year(year)
 day_one = first_jan(year)
-valid(month, day , day_one)
-day_of_week = 1
+day_of_week = valid(month, day , day_one)
 weekday = 1
 if day_of_week is not None:
     for key,value in days_of_week.items():
