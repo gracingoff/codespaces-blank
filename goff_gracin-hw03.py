@@ -8,64 +8,49 @@
 # comments
 # here
 
-while True: 
+day_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
 
-    date_input = input("Give me a date in MM/DD/YYYY format and I will tell you what day of the week it lands on.")
+days_of_week = {'0':'Sunday','1':'Monday','2':'Tuesday','3':'Wednesday','4':'Thursday','5':'Friday','6':'Saturday'}
 
-    if date_input.upper() == "EXIT":
-        break
+def leap_year(year):
+    if (year % 4 == 0 and year %100 != 0) or (year % 400 == 0):
+        day_in_month[1] = 29
     else:
+        day_in_month[1] = 28
 
-        date = []
+def first_jan(year):
+    y = year = -1 
+    day_one = (36 + y + (y // 4) - (y // 100) + (y//400)) % 7 
+    return day_one
 
-        date = date_input.split("/")
-
-        month = date[0]
-        day = date[1]
-        year = date[2]
-
-        month = int(month)
-        day = int(day)
-        year = int(year)
+def valid(month , day , day_one):
+    if day > day_in_month[month - 1] or day <= 0:
+        print('Not valid date')
+        return none 
+    total_days = sum(day_in_month[: month - 1] + day 
+    day_of_week = (total_days + day_one - 1) % 7 
+    return day_of_week
 
 
-        y = year -1
-#Jan first falls on day x where:
-        jan_1 = (36 + y +(y/4) - (y/100) + (y/400))%7
+date = input("Enter a date in the format MM/DD/YYYY to find what day of the week it lands on")
 
-        print(jan_1)
 
-        months = {'Jan':'31','Feb':'28','Mar':'31','Apr':'30','May':'31','Jun':'30','Jul':'31','Aug':'31','Sep':'30','Oct':'31','Nov':'30','Dec':'31'}
+month = int(date[0:2])
 
-        days_of_week = {'0':'Sunday','1':'Monday','2':'Tuesday','3':'Wednesday','4':'Thursday','5':'Friday','6':'Saturday'}
+day = int(date[3:5])
 
-        if 0 >= jan_1 < 1:
+year = int(date[6:11])
 
-         print(f'{date_input} is on {days_of_week['0']}')
+leap_year(year)
+day_one = first_jan(year)
+day_of_week = valid(month, day , day_one)
+weekday = 1
+if day_of_week is not None:
+    for key,value in days.items():
+        if day_of_week == days[key]:
+            print(f'{date} {key}')
 
-        elif 1 >= jan_1 <2 :
 
-            print(f'{date_input} is on {days_of_week['1']}')
-
-        elif 2 >= jan_1 < 3:
-
-            print(f'{date_input} is on {days_of_week['2']}')
-
-        elif 3 >= jan_1 < 4:
-
-            print(f'{date_input} is on {days_of_week['3']}')
-
-        elif 4 >= jan_1 < 5:
-
-            print(f'{date_input} is on {days_of_week['4']}')
-
-        elif 5 >= jan_1 < 5:
-
-            print(f'{date_input} is on {days_of_week['5']}')
-
-        else:
-
-            print(f'{date_input} is on {days_of_week['6']}')
         
 
 
