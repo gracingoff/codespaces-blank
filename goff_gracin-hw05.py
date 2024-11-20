@@ -12,18 +12,18 @@
 import openpyxl 
 from openpyxl.styles import Color , PatternFill
 import string 
-wb = openpyxl.workbook()
+wb = openpyxl.Workbook()
 sheet = wb.active 
 background = Color(rgb='ADD8E6')
-fill = PatternFill(patterntype = 'solid', fgColor = background)
+fill = PatternFill(patternType = 'solid', fgColor = background)
 body = Color(rgb='00008B')
-fill_b = PatternFill(patterntype = 'solid', fgColor = body)
+fill_b = PatternFill(patternType = 'solid', fgColor = body)
 eyes = Color(rgb='000000')
-fill_e = PatternFill(patterntype = 'solid', fgColor = eyes)
+fill_e = PatternFill(patternType = 'solid', fgColor = eyes)
 white = Color(rgb='FFFFFF')
-fill_w = PatternFill(patterntype = 'solid', fgColor = white)
+fill_w = PatternFill(patternType = 'solid', fgColor = white)
 mouth = Color(rgb = 'FF0000')
-fill_r = PatternFill(patterntype = 'solid', fgColor = mouth)
+fill_r = PatternFill(patternType = 'solid', fgColor = mouth)
 
 cells_lb = ['A1','B1','C1','D1','E1','F1','G1','H1','I1','J1','K1','L1','M1','N1','O1','P1','Q1','R1','S1','T1','U1',
             'A2','B2','C2','D2','E2','F2','G2','H2','I2','J2','K2','L2','M2','N2','O2','P2','Q2','R2','S2','T2','U2',
@@ -82,9 +82,9 @@ cells_r = ['J11','L11',
            'F16','G16','O16','P16']
 
 
-for chr in string.ascii_uppercase[:]:
-    sheet.column_dimensionns[chr].width = 5 
-    for i in range(1, ):
+for chr in string.ascii_uppercase[:21]:
+    sheet.column_dimensions[chr].width = 5 
+    for i in range(1,22):
         sheet.row_dimensions[1].height = 20 
         coord = chr + str(i)
         if coord in cells_lb:
