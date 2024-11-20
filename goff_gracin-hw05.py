@@ -83,9 +83,9 @@ cells_r = ['J11','L11',
 
 
 for chr in string.ascii_uppercase[:21]:
-    sheet.column_dimensions[chr].width = 5 
+    sheet.column_dimensions[chr].width = 5
     for i in range(1,22):
-        sheet.row_dimensions[1].height = 20 
+        sheet.row_dimensions[1].height = 20
         coord = chr + str(i)
         if coord in cells_lb:
             sheet[coord].fill = fill
